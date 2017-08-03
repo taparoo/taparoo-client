@@ -12,7 +12,7 @@
       // LOAD SEED CONTENT AT LOAD //
       ///////////////////////////////
       vm.$onInit = function(){
-          vm.beerInventory = [
+          vm.beerAPI = [
         {
           "name": "Tower E.S.B.",
           "type": "Extra Special Bitter",
@@ -87,16 +87,23 @@
           "image_url": "http://www.epicbrewing.com/media/k2/items/cache/24fae0cf4e190078d5b9896e00870cd9_S.jpg"
         },
       ]
+      vm.data ={}
+      for(let i=0;i<vm.beerAPI.length; i++){
+        console.log(vm.beerAPI[i].name);
+        vm.data[vm.beerAPI[i].name]=vm.beerAPI[i].name
+      }
+      console.log(vm.data);
     }
-    vm.data = {
-          "Tower E.S.B.": "Tower E.S.B.",
-          "AllGood Amber": "AllGood Amber",
-          "4.0 GPA:": "4.0 GPA",
-          "Happy Hop Pilsner": "Happy Hop Pilsner",
-          "Big Ben Brown": "Big Ben Brown",
-          "Wit Beer": "Wit Beer",
-          "Blue Ski": "Blue Ski",
-          "Brainless Raspberries": "Brainless Raspberries"
-          };
+
+    // vm.data = {
+    //       "Tower E.S.B.": "Tower E.S.B.",
+    //       "AllGood Amber": "AllGood Amber",
+    //       "4.0 GPA:": "4.0 GPA",
+    //       "Happy Hop Pilsner": "Happy Hop Pilsner",
+    //       "Big Ben Brown": "Big Ben Brown",
+    //       "Wit Beer": "Wit Beer",
+    //       "Blue Ski": "Blue Ski",
+    //       "Brainless Raspberries": "Brainless Raspberries"
+    //       };
         }
 }());
