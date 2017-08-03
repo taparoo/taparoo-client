@@ -1,0 +1,66 @@
+<div class="container text-center">
+    <h3>Hey Dan! Please select beers for display!</h3>
+<br>
+<br>
+<!--
+************************
+ SELECT beers SECTION
+************************
+-->
+<div class="row">
+  <div class="container text-center">
+    <!--
+    ************************
+     SELECT beer 1 SECTION
+    ************************
+    -->
+    <div class="col-xs-6">
+      <label for="beers">Tap 1/Left: </label>
+      <select ng-model="beer1" ng-options="key as value for (key , value) in $ctrl.data">
+        <!-- <option value="">1</option>
+        <option value="">2</option>
+        <option value="">3</option> -->
+      </select>
+    </div>
+    <!--
+    ************************
+     SELECT beer 2 SECTION
+    ************************
+    -->
+    <div class="col-xs-6">
+      <label for="beers" >Tap 2/Right: </label>
+      <select ng-model="beer2" ng-options="key as value for (key , value) in $ctrl.data">
+        <!-- <option value="">1</option>
+        <option value="">2</option>
+        <option value="">3</option> -->
+      </select>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<!--
+*************************************
+ SELECT beer IN cooler/onDeck SECTION
+*************************************
+-->
+<div class="container text-center">
+    <label for="beers" >On Deck!</label>
+    <select ng-model= "beer3" ng-options="key as value for (key , value) in $ctrl.data">
+    <!-- <select ng-options="item as item.name for item in beerInventory track by item.name" ng-model="selected"></select> -->
+      <!-- <option value="">1</option>
+      <option value="">2</option>
+      <option value="">3</option> -->
+    </select>
+</div>
+<br>
+<br>
+<!--
+************************
+ SUBMIT button for POST
+************************
+-->
+<div class="container text-center">
+  <button>Update View</button>
+</div>
+</div>
