@@ -5,7 +5,7 @@
       .module('taparoo')
       .component('tapDisplay', {
         controller: 'tapDisplayController',
-        templateUrl: 'app/beer/tap-select/tap-display.html'
+        templateUrl: 'app/tap-select/tap-display/tap-display.html'
       })
 
 }());

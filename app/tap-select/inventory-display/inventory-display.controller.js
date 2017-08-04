@@ -3,8 +3,8 @@
 
   angular
     .module('taparoo')
-    .controller('tapDisplayController', tapDisplayController)
+    .controller('inventoryDisplayController', inventoryDisplayController)
 
-    function selectBeersController(){
-      console.log('hellow frome tha tapDisplay controller');
-    }());
+    function inventoryDisplayController(){
+      console.log('hellow frome the inventory controller');
+    }}());

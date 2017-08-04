@@ -3,9 +3,9 @@
   //just defining the module
     angular
       .module('taparoo')
-      .component('tapDisplay', {
-        controller: 'tapDisplayController',
-        templateUrl: 'app/beer/tap-select/tap-display.html'
+      .component('inventoryDisplay', {
+        controller: 'inventoryDisplayController',
+        templateUrl: 'app/tap-select/inventory-display/inventory-display.html'
       })
 
 }());

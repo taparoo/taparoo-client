@@ -2,6 +2,7 @@
   'use strict'
   //just defining the module
     angular
-      .module('taparoo', [])
+      .module('taparoo', ['ui.router'])
+    
 
 }());
