@@ -16,6 +16,13 @@
           component: 'selectBeers'
         });
 
+        $stateProvider
+          .state({
+            name: 'tapDisplay',
+            url: '/tapDisplay',
+            component: 'tapDisplay'
+          })
+
         $urlRouterProvider.otherwise('/');
     }
 
