@@ -9,7 +9,7 @@
       const vm = this
 
       $http.get('https://taparoo-server.herokuapp.com/api/v1/beers').then(function(res){
-        console.log(res.data.beers["0"].name);
+        //console.log(res.data.beers["0"].name);
         vm.beerAPI = res.data.beers
         vm.dropdownOptions ={}
         //refactor wo HO Function
@@ -20,6 +20,9 @@
         } )
 
     vm.addBeer = function(){
+      //just logs the name from dropdown
+      console.log('beer1', vm.beer1);
+      vm.tapped = [];
       vm.tapped1 = [];
       vm.tapped2 = [];
       vm.cooler = [];
@@ -36,8 +39,22 @@
           console.log(vm.beerAPI[i]);
             vm.tapped3.push(vm.beerAPI[i])
         }
+
+
       }
+      vm.tapped.push(vm.tapped1[0], vm.tapped2[0], vm.tapped3[0])
+      console.log(vm.tapped[0]);
+      console.log(vm.tapped[1]);
+      console.log(vm.tapped[2]);
+      // vm.tapped.push(vm.tapped1[0], vm.tapped2[0], vm.tapped3[0])
+      //console.log(vm.tapped)
       //$state.go('/tap-display')
     }
+
+    // vm.tapped = function(){
+    //   console.log('test');
+    //   // $http.put()
+    //
+    // }
   }
 }());
