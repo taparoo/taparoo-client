@@ -1,0 +1,56 @@
+    <div class="main">
+        <div class="row">
+
+          <!-- Panels for the two beers on tap -->
+
+          <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="media">
+                  <div class="media-right pull-right">
+                    <!-- <a href="#">
+                      <img class="media-object media-right" src="" alt="..."  height="325" width= "300">
+                    </a> -->
+                  </div>
+                  <div class="media-body" ng-repeat="beer in $ctrl.data.tapped1">
+                    <h1 class="media-heading beer-heading clear">{{beer.name}}</h1>
+                    <h3 class="clear">{{beer.data.brewery}}</h3>
+                    <h4 class="clear">{{beer.data.type}}</h4>
+                    <h4 class="clear">{{beer.data.abv}}</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="media">
+                  <div class="media-right pull-right">
+                    <!-- <a href="#">
+                      <img class="media-object media-right" src="..." alt="..." height="325" width= "300">
+                    </a> -->
+                  </div>
+                  <div class="media-body" <div class="media-body" ng-repeat="beer in $ctrl.data.tapped2">
+                    <h1 class="media-heading beer-heading clear">{{beer.name}}</h1>
+                    <h3 class="clear">{{beer.data.brewery}}</h3>
+                    <h4 class="clear">{{beer.data.type}}</h4>
+                    <h4 class="clear">{{beer.data.abv}}</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    <br>
+    <br>
+    <br>
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+              <div class="panel-body kangaroo-facts">
+                Kangaroo's can't walk backwards
+              </div>
+          </div>
+        </div>
+    </div>
