@@ -12,6 +12,9 @@
       // LOAD SEED CONTENT AT LOAD //
       ///////////////////////////////
       vm.$onInit = function(){
+          vm.tapped1 = []
+          vm.tapped2 = []
+          vm.cooler = []
           vm.beerAPI = [
         {
           "name": "Tower E.S.B.",
@@ -87,23 +90,34 @@
           "image_url": "http://www.epicbrewing.com/media/k2/items/cache/24fae0cf4e190078d5b9896e00870cd9_S.jpg"
         },
       ]
-      vm.data ={}
+      vm.dropdownOptions ={}
+      //refactor wo HO Function
       for(let i=0;i<vm.beerAPI.length; i++){
         console.log(vm.beerAPI[i].name);
-        vm.data[vm.beerAPI[i].name]=vm.beerAPI[i].name
+        vm.dropdownOptions[vm.beerAPI[i].name]=vm.beerAPI[i].name
       }
-      console.log(vm.data);
-    }
 
-    // vm.data = {
-    //       "Tower E.S.B.": "Tower E.S.B.",
-    //       "AllGood Amber": "AllGood Amber",
-    //       "4.0 GPA:": "4.0 GPA",
-    //       "Happy Hop Pilsner": "Happy Hop Pilsner",
-    //       "Big Ben Brown": "Big Ben Brown",
-    //       "Wit Beer": "Wit Beer",
-    //       "Blue Ski": "Blue Ski",
-    //       "Brainless Raspberries": "Brainless Raspberries"
-    //       };
+
+    }
+    vm.addBeer = function(){
+      vm.tapped1 = [];
+      vm.tapped2 = [];
+      vm.cooler = [];
+      for(let i=0;i<vm.beerAPI.length;i++){
+        if(vm.beer1.name === vm.beerAPI[i].name){
+          console.log(vm.beerAPI[i]);
+            vm.tapped1.push(vm.beerAPI[i])
         }
+        if(vm.beer2.name === vm.beerAPI[i].name){
+          console.log(vm.beerAPI[i]);
+            vm.tapped2.push(vm.beerAPI[i])
+        }
+        if(vm.cooler.name === vm.beerAPI[i].name){
+          console.log(vm.beerAPI[i]);
+            vm.tapped3.push(vm.beerAPI[i])
+        }
+      }
+  }
+}
+
 }());
