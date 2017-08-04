@@ -1,5 +1,5 @@
 <div class="container text-center">
-    <h3>Hey Dan! Please select beers for display!</h3>
+    <h3>Hey, Brittany and her assistant!! Please select beers for display!</h3>
 <br>
 <br>
 <!--
@@ -9,58 +9,136 @@
 -->
 <div class="row">
   <div class="container text-center">
-    <!--
-    ************************
-     SELECT beer 1 SECTION
-    ************************
-    -->
-    <div class="col-xs-6">
-      <label for="beers">Tap 1/Left: </label>
-      <select ng-model="beer1" ng-options="key as value for (key , value) in $ctrl.data">
-        <!-- <option value="">1</option>
-        <option value="">2</option>
-        <option value="">3</option> -->
-      </select>
-    </div>
-    <!--
-    ************************
-     SELECT beer 2 SECTION
-    ************************
-    -->
-    <div class="col-xs-6">
-      <label for="beers" >Tap 2/Right: </label>
-      <select ng-model="beer2" ng-options="key as value for (key , value) in $ctrl.data">
-        <!-- <option value="">1</option>
-        <option value="">2</option>
-        <option value="">3</option> -->
-      </select>
+    <form class="container" >
+      <!--
+      ************************
+       SELECT beer 1 SECTION
+      ************************
+      -->
+      <div class="col-xs-6">
+        <label for="beers">Tap 1/Left: </label>
+        <select ng-model="$ctrl.beer1.name" ng-options="key as value for (key , value) in $ctrl.dropdownOptions">
+          <!-- <option value="">1</option>
+          <option value="">2</option>
+          <option value="">3</option> -->
+        </select>
+      </div>
+      <!--
+      ************************
+       SELECT beer 2 SECTION
+      ************************
+      -->
+      <div class="col-xs-6">
+        <label for="beers" >Tap 2/Right: </label>
+        <select ng-model="$ctrl.beer2.name" ng-options="key as value for (key , value) in $ctrl.dropdownOptions">
+          <!-- <option value="">1</option>
+          <option value="">2</option>
+          <option value="">3</option> -->
+        </select>
+      </div>
     </div>
   </div>
+  <br>
+  <br>
+  <!--
+  *************************************
+   SELECT beer IN cooler/onDeck SECTION
+  *************************************
+  -->
+  <div class="container text-center">
+      <label for="beers" >On Deck!</label>
+      <select ng-model= "$ctrl.beer3.name" ng-options="key as value for (key , value) in $ctrl.dropdownOptions">
+      <!-- <select ng-options="item as item.name for item in beerInventory track by item.name" ng-model="selected"></select> -->
+        <!-- <option value="">1</option>
+        <option value="">2</option>
+        <option value="">3</option> -->
+      </select>
+  </div>
+  <br>
+  <br>
+  <!--
+  ************************
+   SUBMIT button for POST
+  ************************
+  -->
+    <div class="container text-center">
+      <!-- <button
+        ng-click="$ctrl.addBeer()"
+        type="button"
+        class="btn btn-success">
+          Update View
+      </button> -->
+      <button ng-click="$ctrl.addBeer()" type="button" class="btn btn-success">
+    Add Beers!
+  </button>
+    </form>
+    <br>
+    <br>
+    <br>
+
+  </div>
 </div>
-<br>
-<br>
-<!--
-*************************************
- SELECT beer IN cooler/onDeck SECTION
-*************************************
--->
-<div class="container text-center">
-    <label for="beers" >On Deck!</label>
-    <select ng-model= "beer3" ng-options="key as value for (key , value) in $ctrl.data">
-    <!-- <select ng-options="item as item.name for item in beerInventory track by item.name" ng-model="selected"></select> -->
-      <!-- <option value="">1</option>
-      <option value="">2</option>
-      <option value="">3</option> -->
-    </select>
-</div>
-<br>
-<br>
+
 <!--
 ************************
- SUBMIT button for POST
+ VIEW FOR updated beers
+ needs seperate component!
 ************************
 -->
-<div class="container text-center">
-  <button>Update View</button>
-</div>
+
+<div class="main">
+    <div class="row">
+
+      <!-- Panels for the two beers on tap -->
+
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="media">
+              <div class="media-right pull-right">
+                <!-- <a href="#">
+                  <img class="media-object media-right" src="" alt="..."  height="325" width= "300">
+                </a> -->
+              </div>
+              <div class="media-body" ng-repeat="beer in $ctrl.tapped1">
+                <h1 class="media-heading beer-heading clear">{{beer.name}}</h1>
+                <h3 class="clear">{{beer.brewery}}</h3>
+                <h4 class="clear">{{beer.type}}</h4>
+                <h4 class="clear">{{beer.abv}}</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="media">
+              <div class="media-right pull-right">
+                <!-- <a href="#">
+                  <img class="media-object media-right" src="..." alt="..." height="325" width= "300">
+                </a> -->
+              </div>
+              <div class="media-body" <div class="media-body" ng-repeat="beer in $ctrl.tapped2">
+                <h1 class="media-heading beer-heading clear">{{beer.name}}</h1>
+                <h3 class="clear">{{beer.brewery}}</h3>
+                <h4 class="clear">{{beer.type}}</h4>
+                <h4 class="clear">{{beer.abv}}</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+<br>
+<br>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+          <div class="panel-body kangaroo-facts">
+            Kangaroo's can't walk backwards
+          </div>
+      </div>
+    </div>
 </div>
