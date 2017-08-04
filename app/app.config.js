@@ -5,25 +5,33 @@
       .module('taparoo')
       .config(config);
 
+      // config.$inject = ['$stateProvider, $urlRouterProvider', 'locationProvider']
+
     function config($stateProvider, $urlRouterProvider) {
       console.log("hello from router stuff");
 
 
+
       $stateProvider
         .state({
-          name: 'tap-select',
-          url:'/',
+          name: 'tapselect',
+          url:'/tap-select',
           component: 'selectBeers'
-        });
+        })
 
-        $stateProvider
           .state({
             name: 'tapDisplay',
             url: '/tapDisplay',
             component: 'tapDisplay'
           })
 
-        $urlRouterProvider.otherwise('/');
+          .state({
+            name: 'inventory-display',
+            url: '/inventoryDisplay',
+            component: 'inventoryDisplay'
+          })
+
+        $urlRouterProvider.otherwise('/tap-select');
     }
 
 
