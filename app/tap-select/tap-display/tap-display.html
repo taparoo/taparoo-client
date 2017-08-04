@@ -3,45 +3,71 @@
 
               <!-- Panels for the two beers on tap -->
 
-              <div class="col-md-6">
+              <!-- <div class="col-md-6">
                 <div class="panel panel-default">
-                  <div class="panel-body">
-                    <div class="media">
+                  <div class="panel-body tap-panel">
+                    <div ng-repeat='beer in $ctrl.tapped1' class="media">
                       <div class="media-right pull-right">
                         <a href="#">
-                          <img class="media-object media-right" src="" alt="..."  height="325" width= "300">
+                          <img class="media-object media-right" src={{beer.image_url}} alt="..."  >
                         </a>
                       </div>
                       <div class="media-body">
-                        <h1 class="media-heading beer-heading">Beer</h1>
-                        <h3>Brewery</h3>
-                        <h4>Type of Beer</h4>
-                        <h4>Percentage</h4>
+                        <h1 class="media-heading beer-heading">{{beer.name}}</h1>
+                        <h3>{{beer.brewery}}</h3>
+                        <h4>{{beer.type}}</h4>
+                        <h4>{{beer.abv}}</h4>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
-              <div class="col-md-6">
+              <div class="col-sm-6 col-md-6">
+                  <div ng-repeat='beer in $ctrl.tapped1' class="thumbnail">
+                    <img src="{{beer.image_url}}" alt="...">
+                    <div class="caption">
+                      <h3>{{beer.name}}</h3>
+                      <p>{{beer.brewery}}</p>
+                      <p>{{beer.type}}</p>
+                      <p>{{beer.abv}}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 col-md-6">
+                    <div ng-repeat='beer in $ctrl.tapped2' class="thumbnail">
+                      <img src="{{beer.image_url}}" alt="...">
+                      <div class="caption">
+                        <h3> Beer: {{beer.name}}</h3>
+                        <p>Brewery: {{beer.brewery}}</p>
+                        <p>Type: {{beer.type}}</p>
+                        <p>ABV: {{beer.abv}}</p>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+              <!-- <div class="col-md-6">
                 <div class="panel panel-default">
-                  <div class="panel-body">
-                    <div class="media">
+                  <div class="panel-body tap-panel">
+                    <div ng-repeat='beer in $ctrl.tapped2' class="media">
                       <div class="media-right pull-right">
                         <a href="#">
-                          <img class="media-object media-right" src="..." alt="..." height="325" width= "300">
+                          <img class="media-object media-right" src={{beer.image_url}} alt="..." >
                         </a>
                       </div>
                       <div class="media-body">
-                        <h1 class="media-heading">Beer</h1>
-                        <h3>Brewery</h3>
-                        <h4>Type of Beer</h4>
-                        <h4>Percentage</h4>
+                        <h1 class="media-heading beer-heading">{{beer.name}}</h1>
+                        <h3>{{beer.brewery}}</h3>
+                        <h4>{{beer.type}}</h4>
+                        <h4>{{beer.abv}}</h4>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
 
 <br>

@@ -6,7 +6,7 @@ footer {
 }
 
 h1 {
-  font-size: 800%;
+  /*font-size: 700%;*/
 }
 
 h3 {
@@ -14,9 +14,13 @@ h3 {
 }
 
 h4 {
-  font-size: 300%;
+  /*font-size: 300%;*/
 }
 
 .kangaroo-facts {
   font-size: 250%;
+}
+
+.tap-panel{
+  height: 68vh
 }
