@@ -13,9 +13,5 @@
         bindings: {
             data: '<'
           }
-      })
-      // .component('tapDisplay', {
-      //   controller: 'tapDisplayController',
-      //   templateUrl: 'tap-disaply/tap-select/tap-display.html'
-      // })
+    })      
 }());

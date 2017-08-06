@@ -9,35 +9,30 @@
       const vm = this
 
       $http.get('https://taparoo-server.herokuapp.com/api/v1/beers').then(function(res){
-        console.log(res.data.beers["0"].name);
+        //console.log(res.data.beers["0"].name);
         vm.beerAPI = res.data.beers
         vm.dropdownOptions ={}
         //refactor wo HO Function
         for(let i=0;i<res.data.beers.length; i++){
-          // console.log(res[i].name);
-          vm.dropdownOptions[res.data.beers[i].name]=res.data.beers[i].name
+        console.log(res.data.beers[i].id);
+          vm.dropdownOptions[res.data.beers[i].id]=res.data.beers[i].name
         }
         } )
 
     vm.addBeer = function(){
-      vm.tapped1 = [];
-      vm.tapped2 = [];
-      vm.cooler = [];
-      for(let i=0;i<vm.beerAPI.length;i++){
-        if(vm.beer1.name === vm.beerAPI[i].name){
-          console.log(vm.beerAPI[i]);
-            vm.tapped1.push(vm.beerAPI[i])
-        }
-        if(vm.beer2.name === vm.beerAPI[i].name){
-          console.log(vm.beerAPI[i]);
-            vm.tapped2.push(vm.beerAPI[i])
-        }
-        if(vm.cooler.name === vm.beerAPI[i].name){
-          console.log(vm.beerAPI[i]);
-            vm.tapped3.push(vm.beerAPI[i])
-        }
+      //just logs the name from dropdown
+      let onTap = {
+        //name is ID!!!!
+        left: vm.beer1.name,
+        right: vm.beer2.name,
+        cooler: vm.beer3.name
       }
-      //$state.go('/tap-display')
+      console.log('obj: ', onTap);
+      $http.put('https://taparoo-server.herokuapp.com/api/v1/beers/on_tap', onTap).then(function(res){
+          console.log('success?', res);
+      })
+      //what the y fuck am I doing?
     }
+
   }
 }());

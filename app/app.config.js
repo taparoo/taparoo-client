@@ -16,12 +16,8 @@
         url:'/tap-select',
         component: 'selectBeers'
       })
-      // .state({
-      //   name:'tap-inventory',
-      //   url:'/tap-inventory',
-      //   component: 'tap-inventory'
-      // })
+
       //backup-page...
-      $urlRouterProvider.otherwise('/')
+      $urlRouterProvider.otherwise('/tap-select')
   }
 }());
