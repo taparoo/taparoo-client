@@ -46,9 +46,12 @@
   *************************************
   -->
   <div class="container text-center">
-      <label for="beers" >On Deck!</label>
-      <select ng-model= "$ctrl.beer3.name" ng-options="key as value for (key , value) in $ctrl.dropdownOptions">
-      </select>
+    <label for="beers" >On Deck!: </label>
+    <select ng-model="$ctrl.beer3.name" ng-options="key as value for (key , value) in $ctrl.dropdownOptions">
+      <!-- <option value="">1</option>
+      <option value="">2</option>
+      <option value="">3</option> -->
+    </select>
   </div>
   <br>
   <br>

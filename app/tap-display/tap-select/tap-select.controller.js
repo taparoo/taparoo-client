@@ -14,47 +14,25 @@
         vm.dropdownOptions ={}
         //refactor wo HO Function
         for(let i=0;i<res.data.beers.length; i++){
-          // console.log(res[i].name);
-          vm.dropdownOptions[res.data.beers[i].name]=res.data.beers[i].name
+        console.log(res.data.beers[i].id);
+          vm.dropdownOptions[res.data.beers[i].id]=res.data.beers[i].name
         }
         } )
 
     vm.addBeer = function(){
       //just logs the name from dropdown
-      console.log('beer1', vm.beer1);
-      vm.tapped = [];
-      vm.tapped1 = [];
-      vm.tapped2 = [];
-      vm.cooler = [];
-      for(let i=0;i<vm.beerAPI.length;i++){
-        if(vm.beer1.name === vm.beerAPI[i].name){
-          console.log(vm.beerAPI[i]);
-            vm.tapped1.push(vm.beerAPI[i])
-        }
-        if(vm.beer2.name === vm.beerAPI[i].name){
-          console.log(vm.beerAPI[i]);
-            vm.tapped2.push(vm.beerAPI[i])
-        }
-        if(vm.cooler.name === vm.beerAPI[i].name){
-          console.log(vm.beerAPI[i]);
-            vm.tapped3.push(vm.beerAPI[i])
-        }
-
-
+      let onTap = {
+        //name is ID!!!!
+        left: vm.beer1.name,
+        right: vm.beer2.name,
+        cooler: vm.beer3.name
       }
-      vm.tapped.push(vm.tapped1[0], vm.tapped2[0], vm.tapped3[0])
-      console.log(vm.tapped[0]);
-      console.log(vm.tapped[1]);
-      console.log(vm.tapped[2]);
-      // vm.tapped.push(vm.tapped1[0], vm.tapped2[0], vm.tapped3[0])
-      //console.log(vm.tapped)
-      //$state.go('/tap-display')
+      console.log('obj: ', onTap);
+      $http.put('https://taparoo-server.herokuapp.com/api/v1/beers/on_tap', onTap).then(function(res){
+          console.log('success?', res);
+      })
+      //what the y fuck am I doing?
     }
 
-    // vm.tapped = function(){
-    //   console.log('test');
-    //   // $http.put()
-    //
-    // }
   }
 }());
