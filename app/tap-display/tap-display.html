@@ -1,0 +1,66 @@
+    <div class="main">
+        <div class="row">
+
+          <!-- Panels for the two beers on tap -->
+
+          <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="media">
+                  <div class="media-right pull-right">
+                    <!-- <a href="#">
+                      <img class="media-object media-right" src="" alt="..."  height="325" width= "300">
+                    </a> -->
+                  </di>
+                  <div class="media-body" ng-repeat="beer in $ctrl.tapped1">
+                    <h3 class="media-heading beer-heading clear">Name: {{beer.name}}</h3>
+                    <h4 class="clear">Brewery: {{beer.brewery}}</h4>
+                    <h5 class="clear">Type: {{beer.type}}</h5>
+                    <h5 class="clear">Abv: {{beer.abv}}</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="media">
+                  <div class="media-body" <div class="media-body" ng-repeat="beer in $ctrl.tapped2">
+                    <h3 class="media-heading beer-heading clear">Name: {{beer.name}}</h3>
+                    <h4 class="clear">Brewery: {{beer.brewery}}</h4>
+                    <h5 class="clear">Type: {{beer.type}}</h5>
+                    <h5 class="clear">Abv: {{beer.abv}}</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    <br>
+    <br>
+    <br>
+    </div>
+
+    <div class='container text-center'>
+      <div class='row'>
+        <div class="col-md-12">
+          <div class="" ng-repeat="beer in $ctrl.cooler">
+            <h5 class="clear">What's next?</h5>
+            <h5 class="clear">Name: {{beer.name}}</h5>
+            <h5 class="clear">Brewery: {{beer.brewery}}</h5>
+            <h6 class="clear">Type: {{beer.type}}</h6>
+            <h6 class="clear">Abv: {{beer.abv}}</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+          <div class="panel-body kangaroo-facts">
+            Kangaroo's can't walk backwards
+          </div>
+      </div>
+    </div>
