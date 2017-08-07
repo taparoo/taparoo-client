@@ -15,6 +15,10 @@
         name:'selectBeers',
         url:'/tap-select',
         component: 'selectBeers'
+      }).state({
+        name:'inventory',
+        url:'/inventory',
+        component: 'inventory'
       })
 
       //backup-page...
