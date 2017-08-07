@@ -12,10 +12,6 @@
           var tapData = Object.keys(obj).map(function(e) {
             return obj[e]
           })
-
-          //console.log(Object.values(res.data));
-          //var tapData = res.data.on_tap
-          //console.log(tapData);
           vm.tapped1 = [];
           vm.tapped2 = [];
           vm.cooler = [];
