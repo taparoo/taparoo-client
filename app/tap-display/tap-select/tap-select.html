@@ -207,8 +207,27 @@
         <legend>Beer Inventory</legend>
           <ul class="list-group">
             <li ng-repeat= "beer in $ctrl.inventory" class="list-group-item">
-              {{beer.name}}
+              <div class="container">
+                <div class="row">
+                  <br>
+                  <div class="col-md-3">
+                    <p><big>{{beer.name}}</big></p>
+                  </div>
+                  <div class="col-md-3">
+                    <button
+                        ng-click="$ctrl.removeFromInventory(beer)"
+                        type="button"
+                        class="btn btn-danger">
+                        Remove
+                    </button>
+
+                  </div>
+<br>
+                </div>
+              </div>
+
             </li>
+
           </ul>
           </div>
         </div>
