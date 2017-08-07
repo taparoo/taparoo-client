@@ -1,5 +1,4 @@
 (function() {
-  'use strict'
   //just defining the module
     angular
       .module('taparoo', ['ui.router'])
@@ -13,5 +12,9 @@
         bindings: {
             data: '<'
           }
-    })      
+      })
+      .component('inventoryDisplay', {
+        controller: 'inventoryDisplayController',
+        templateUrl: 'inventory/inventory.html'
+      })
 }());
