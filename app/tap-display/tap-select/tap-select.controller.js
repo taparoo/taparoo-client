@@ -18,7 +18,28 @@
         }
         } )
 
-    vm.addBeer = function(){
+    vm.inventoryList = function(){
+      $http.get('https://taparoo-server.herokuapp.com/api/v1/beers').then(function(res){
+        vm.inventory = res.data.beers
+      })
+    }
+
+    vm.addToInventory = function(){
+      var newBeer = ({
+          'name': vm.newBeer.name,
+          'brewery': vm.newBeer.brewery,
+          'type': vm.newBeer.type,
+          'image_url': vm.newBeer.imageURL,
+          'abv': vm.newBeer.abv
+        })
+        console.log("why?");
+        console.log(newBeer);
+      $http.post('https://taparoo-server.herokuapp.com/api/v1/beers', newBeer, function(newBeer) {
+        console.log(res);
+      })
+  }
+
+    vm.updateBeerList = function(){
       //just logs the name from dropdown
       var onTap = {
         //name is ID!!!!
