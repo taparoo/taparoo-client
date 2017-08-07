@@ -1,18 +1,52 @@
+<div class="main">
+
     <div class="main">
+      <div class="container">
         <div class="row">
 
+          <div class="col-sm-6 ">
+            <div class="thumbnail" ng-repeat="beer in $ctrl.tapped1">
+              <img src={{beer.image_url}} alt="...">
+              <div class="caption">
+                <h3>{{beer.name}}</h3>
+                <h4 class="clear">Brewery: {{beer.brewery}}</h4>
+                <h5 class="clear">Type: {{beer.type}}</h5>
+                <h5 class="clear">Abv: {{beer.abv}}</h5>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="thumbnail" ng-repeat="beer in $ctrl.tapped2">
+              <img src={{beer.image_url}} alt="...">
+              <div class="caption">
+                <h3>{{beer.name}}</h3>
+                <h4 class="clear">Brewery: {{beer.brewery}}</h4>
+                <h5 class="clear">Type: {{beer.type}}</h5>
+                <h5 class="clear">Abv: {{beer.abv}}</h5>
+              </div>
+            </div>
+          </div>
           <!-- Panels for the two beers on tap -->
 
-          <div class="col-md-6">
+          <!-- <div class="col-md-6 col-sm-3">
             <div class="panel panel-default">
-              <div class="panel-body">
+              <div class="panel-body" ng-repeat="beer in $ctrl.tapped1">
                 <div class="media">
                   <div class="media-right pull-right">
+
+                    <a href="#">
+                      <img class="media-object media-right" src={{beer.image_url}} alt="..."  height="325" width= "300">
+                    </a>
+                  </div>
+                  <div class="media-body" >
+
                     <!-- <a href="#">
                       <img class="media-object media-right" src="" alt="..."  height="325" width= "300">
                     </a> -->
-                  </di>
+                  <!-- </di>
                   <div class="media-body" ng-repeat="beer in $ctrl.tapped1">
+
                     <h3 class="media-heading beer-heading clear">Name: {{beer.name}}</h3>
                     <h4 class="clear">Brewery: {{beer.brewery}}</h4>
                     <h5 class="clear">Type: {{beer.type}}</h5>
@@ -21,9 +55,9 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <div class="col-md-6">
+          <!-- <div class="col-md-6">
             <div class="panel panel-default">
               <div class="panel-body">
                 <div class="media">
@@ -37,30 +71,42 @@
               </div>
             </div>
           </div>
-        </div>
-    <br>
-    <br>
-    <br>
+        </div> -->
     </div>
+      </div>
+    <div class='container'>
+      <div class="row">
+        <div class="col-md-6">
+            <div class="panel-body kangaroo-facts">
+              Kangaroo's can't walk backwards
+            </div>
+        </div>
 
-    <div class='container text-center'>
-      <div class='row'>
-        <div class="col-md-12">
-          <div class="" ng-repeat="beer in $ctrl.cooler">
-            <h5 class="clear">What's next?</h5>
-            <h5 class="clear">Name: {{beer.name}}</h5>
-            <h5 class="clear">Brewery: {{beer.brewery}}</h5>
-            <h6 class="clear">Type: {{beer.type}}</h6>
-            <h6 class="clear">Abv: {{beer.abv}}</h6>
+        <div class="col-md-6">
+          <div class="panel panel-default" ng-repeat="beer in $ctrl.cooler">
+            <div class="panel-heading">
+              <h5 class="panel-title clear">What's next?</h5>
+            </div>
+            <div class="panel-body">
+              <h4 class="clear">{{beer.name}}</h4>
+              <h5 class="clear">Brewery: {{beer.brewery}}</h5>
+              <h6 class="clear">Type: {{beer.type}}</h6>
+              <h6 class="clear">Abv: {{beer.abv}}</h6>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-          <div class="panel-body kangaroo-facts">
-            Kangaroo's can't walk backwards
-          </div>
-      </div>
+
     </div>
+  </div>
+
+
+
+    <!-- <div class="col-md-6">
+      <div class="" ng-repeat="beer in $ctrl.cooler">
+        <h5 class="clear">What's next?</h5>
+        <h5 class="clear">Name: {{beer.name}}</h5>
+        <h5 class="clear">Brewery: {{beer.brewery}}</h5>
+        <h6 class="clear">Type: {{beer.type}}</h6>
+        <h6 class="clear">Abv: {{beer.abv}}</h6>
+      </div -->
