@@ -34,11 +34,19 @@
               <div class="panel-body" ng-repeat="beer in $ctrl.tapped1">
                 <div class="media">
                   <div class="media-right pull-right">
+
                     <a href="#">
                       <img class="media-object media-right" src={{beer.image_url}} alt="..."  height="325" width= "300">
                     </a>
                   </div>
                   <div class="media-body" >
+
+                    <!-- <a href="#">
+                      <img class="media-object media-right" src="" alt="..."  height="325" width= "300">
+                    </a> -->
+                  </di>
+                  <div class="media-body" ng-repeat="beer in $ctrl.tapped1">
+
                     <h3 class="media-heading beer-heading clear">Name: {{beer.name}}</h3>
                     <h4 class="clear">Brewery: {{beer.brewery}}</h4>
                     <h5 class="clear">Type: {{beer.type}}</h5>

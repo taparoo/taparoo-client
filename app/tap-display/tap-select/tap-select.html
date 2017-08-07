@@ -61,13 +61,16 @@
   ************************
   -->
     <div class="container text-center">
-      <button ng-click="$ctrl.addBeer()" type="button" class="btn btn-success">
+      <button ng-click="$ctrl.addBeer(); $ctrl.socketToMe()" type="button" class="btn btn-success">
     Add Beers!
   </button>
     </form>
     <br>
     <br>
     <br>
+  </div>
+  <div>
+    <a href="" ng-show="">Manage Inventory</a>
   </div>
 </div>
 
