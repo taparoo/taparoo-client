@@ -2,7 +2,7 @@
   angular
     .module('taparoo')
     .controller('tapDisplayController', tapDisplayController)
-    function tapDisplayController($http, appSocketService){
+    function tapDisplayController($http, appSocketService, $scope){
       var vm = this;
       //console.log('hellow frome tha tapDisplay controller');
       function getNewTaps(){
@@ -26,9 +26,12 @@
       }
       //console.log(appSocketService);
       getNewTaps()
-      appSocketService.on('ping', function(){
-        console.log('tester appSocketService');
-        getNewTaps()
+      appSocketService.on('tapUpdate', function(data){
+        console.log('sockets!', data);
+        vm.tapped1 = [data.left]
+        vm.tapped2 = [data.right]
+        vm.cooler = [data.cooler]
+        $scope.$apply();
       })
 
     }}());

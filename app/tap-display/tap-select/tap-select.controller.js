@@ -63,28 +63,39 @@
 
   }
 
-    vm.updateBeerList = function(){
-      //just logs the name from dropdown
-      var onTap = {
-        //name is ID!!!!
-        left: vm.beer1.name,
-        right: vm.beer2.name,
-        cooler: vm.beer3.name
+  vm.updateBeerList = function(){
+    let onTapData= {
+      left: '',
+      right: '',
+      cooler: ''
+    }
+
+    //just logs the name from dropdown
+    var onTap = {
+      //name is ID!!!!
+      left: vm.beer1.name,
+      right: vm.beer2.name,
+      cooler: vm.beer3.name
+    }
+
+    for (var i = 0; i < vm.beerAPI.length; i++) {
+
+      if (vm.beerAPI[i].id == vm.beer1.name) {
+        onTapData.left = vm.beerAPI[i];
+      } else if (vm.beerAPI[i].id == vm.beer2.name) {
+        onTapData.right = vm.beerAPI[i];
+      } else if (vm.beerAPI[i].id == vm.beer3.name) {
+        onTapData.cooler = vm.beerAPI[i];
       }
-      console.log('obj: ', onTap);
-      $http.put('https://taparoo-server.herokuapp.com/api/v1/beers/on_tap', onTap).then(function(res){
-          console.log('success?', res);
-          appSocketService.emit('ping', 'test');
-          //appSocketService.emit('ping');
-          //handle error
-
-      }).then(function(){location.reload();})
-      //what the y fuck am I doing?
     }
+    $http.put("https://taparoo-server.herokuapp.com/api/v1/beers/on_tap", onTap, (res) => {
+      console.log(res);
+    });
+    appSocketService.emit('tapUpdate', onTapData);
 
-    function sockitToMe(){
-      socket.emit("tapUpdate", {message: "updated"})
-    }
+    // function sockitToMe(){
+    //   socket.emit("tapUpdate", {message: "updated"})
+    // }
 
   }
-}());
+}}());
