@@ -2,7 +2,7 @@
 Client-side for taparoo
 
 
-#TapAroo
+# TapAroo
 This project was created to help ease the creation of a tap display and to help keep track of beer 
 inventory for the building administrators. The user can simply select the two beers which
 will be on tap, or are currently on tap, and what is currently in the cooler then click update
