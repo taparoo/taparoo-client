@@ -4,23 +4,33 @@
     .module('taparoo')
     .controller('tapSelectController', tapSelectController)
 
-    function tapSelectController($http, $stateParams, $state, appSocketService){
+    function tapSelectController($scope, $http, $stateParams, $state, appSocketService){
       var vm = this
+
 
       vm.$onInit = function(){
         vm.loadDropdowns()
       }
       vm.loadDropdowns = function(){
         $http.get('https://taparoo-server.herokuapp.com/api/v1/beers').then(function(res){
-          //console.log(res.data.beers["0"].name);
           vm.beerAPI = res.data.beers
-          vm.dropdownOptions ={}
+          vm.dropdownOptions =[]
           //refactor wo HO Function
+          console.log(res.data.beers);
           for(var i=0;i<res.data.beers.length; i++){
-          console.log(res.data.beers[i].id);
-            vm.dropdownOptions[res.data.beers[i].id]=res.data.beers[i].name
+            if(res.data.beers[i].tap == 'left'){
+              vm.beer1 = res.data.beers[i]
+              console.log('left yes!');
+            }else if(res.data.beers[i].tap == 'right'){
+              vm.beer2 = res.data.beers[i]
+              console.log('right yes!');
+            }else if(res.data.beers[i].tap == 'cooler'){
+              vm.cooler = res.data.beers[i]
+              console.log('cooler yes!');
+            }
+            vm.dropdownOptions.push(res.data.beers[i])
           }
-          } )
+          })
 
       }
       // console.log(appSocketService);
@@ -64,38 +74,31 @@
   }
 
   vm.updateBeerList = function(){
-    let onTapData= {
-      left: '',
-      right: '',
-      cooler: ''
+    console.log('updateBeerList');
+    var onTapData= {
+      left: vm.beer1,
+      right: vm.beer2,
+      cooler: vm.cooler
     }
 
     //just logs the name from dropdown
     var onTap = {
-      //name is ID!!!!
-      left: vm.beer1.name,
-      right: vm.beer2.name,
-      cooler: vm.beer3.name
+      left: vm.beer1.id,
+      right: vm.beer2.id,
+      cooler: vm.cooler.id
     }
 
-    for (var i = 0; i < vm.beerAPI.length; i++) {
-
-      if (vm.beerAPI[i].id == vm.beer1.name) {
-        onTapData.left = vm.beerAPI[i];
-      } else if (vm.beerAPI[i].id == vm.beer2.name) {
-        onTapData.right = vm.beerAPI[i];
-      } else if (vm.beerAPI[i].id == vm.beer3.name) {
-        onTapData.cooler = vm.beerAPI[i];
-      }
-    }
-    $http.put("https://taparoo-server.herokuapp.com/api/v1/beers/on_tap", onTap, (res) => {
+    $http.put("https://taparoo-server.herokuapp.com/api/v1/beers/on_tap", JSON.stringify(onTap)).then((res) => {
       console.log(res);
-    });
+
+
     appSocketService.emit('tapUpdate', onTapData);
 
-    // function sockitToMe(){
-    //   socket.emit("tapUpdate", {message: "updated"})
-    // }
-
+    var payload = {"text": `${onTapData.left.name} and ${onTapData.right.name} are tapped :beers:`}
+    console.log(payload);
+    $.post("https://hooks.slack.com/services/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", JSON.stringify(payload))
+    
+  });
   }
+
 }}());
