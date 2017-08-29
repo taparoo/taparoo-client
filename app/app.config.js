@@ -8,6 +8,11 @@
 
     $stateProvider
       .state({
+        name:'home',
+        url:'/home',
+        component: 'home'
+      })
+      .state({
         name:'tapDisplay',
         url:'/tap-display',
         component: 'tapDisplay'
@@ -16,12 +21,12 @@
         url:'/tap-select',
         component: 'selectBeers'
       }).state({
-        name:'inventory',
+        name:'inventoryManagement',
         url:'/inventory',
-        component: 'inventory'
+        component: 'inventoryManagement'
       })
 
       //backup-page...
-      $urlRouterProvider.otherwise('/tap-select')
+      $urlRouterProvider.otherwise('/home')
   }
 }());

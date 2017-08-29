@@ -4,6 +4,9 @@
     .controller('tapDisplayController', tapDisplayController)
     function tapDisplayController($http, appSocketService, $scope){
       var vm = this;
+      vm.$onInit = function laod(){
+        getNewTaps()
+      }
       function getNewTaps(){
         $http.get('https://taparoo-server.herokuapp.com/api/v1/beers').then(function(res){
           vm.beerAPI = res.data.beers

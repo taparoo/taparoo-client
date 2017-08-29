@@ -2,6 +2,10 @@
   //just defining the module
     angular
       .module('taparoo', ['ui.router'])
+      .component('home', {
+        controller: 'homeController',
+        templateUrl: 'home/home.html'
+      })
       .component('tapDisplay', {
         controller: 'tapDisplayController',
         templateUrl: 'tap-display/tap-display.html'
@@ -13,8 +17,11 @@
             data: '<'
           }
       })
-      .component('inventoryDisplay', {
-        controller: 'inventoryDisplayController',
-        templateUrl: 'inventory/inventory.html'
+      .component('inventoryManagement', {
+        controller: 'inventoryController',
+        templateUrl: 'tap-display/inventory/inventory.html',
+        bindings: {
+            data: '<'
+          }
       })
 }());
